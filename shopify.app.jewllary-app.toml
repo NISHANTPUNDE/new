@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "Jewllary_APP"
+client_id = "34bd8990b2f9c11dfa9893ba38d690d8"
+application_url = "https://replication-elsewhere-recording-levitra.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_products,read_orders"
+
+[auth]
+redirect_urls = [
+  "https://replication-elsewhere-recording-levitra.trycloudflare.com/auth/callback",
+  "https://replication-elsewhere-recording-levitra.trycloudflare.com/auth/shopify/callback",
+  "https://replication-elsewhere-recording-levitra.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "storeapp-dev.myshopify.com"

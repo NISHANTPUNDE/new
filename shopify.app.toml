@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "jewellaryaApp"
+client_id = "688bf3ee609bfaebe3a0bcf79102cd1e"
+application_url = "https://distances-kirk-occupational-clubs.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_products,read_orders"
+
+[auth]
+redirect_urls = [
+  "https://distances-kirk-occupational-clubs.trycloudflare.com/auth/callback",
+  "https://distances-kirk-occupational-clubs.trycloudflare.com/auth/shopify/callback",
+  "https://distances-kirk-occupational-clubs.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "themedemo201.myshopify.com"

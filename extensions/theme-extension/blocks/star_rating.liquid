@@ -1,0 +1,468 @@
+{% schema %}
+  {
+    "name": "Star Rating",
+    "target": "section",
+    "settings": [
+      { "type": "product", "id": "product", "label": "product", "autofill": true },
+      { "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" }
+    ]
+  }
+  {% endschema %}
+  
+  {% comment %}
+    <link rel="stylesheet" href="{{ 'newstyle.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'stylenew.css' | asset_url }}">
+  {% endcomment %}
+  <link rel="stylesheet" href="{{ 'solitaire_ring.css' | asset_url }}">
+  <div >
+  
+    <div class="productimagecarosoul" >
+      <section>
+        <div class="container">
+            <div class="carousel">
+                <input type="radio" name="slides" checked="checked" id="slide-1">
+                <input type="radio" name="slides" id="slide-2">
+                <input type="radio" name="slides" id="slide-3">
+                <input type="radio" name="slides" id="slide-4">
+                <input type="radio" name="slides" id="slide-5">
+                <input type="radio" name="slides" id="slide-6">
+                <ul class="carousel__slides">
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img  id="imag1"  alt="">
+                            </div>
+                            
+                        </figure>
+                    </li>
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img  id="imag2"  alt="">
+                            </div>
+                            
+                        </figure>
+                    </li>
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img id="imag3"  alt="">
+                            </div>
+                            
+                        </figure>
+                    </li>
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img id="imag4"  alt="">
+                            </div>
+                                                        
+                            
+                        </figure>
+                    </li>
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img id="imag5"  alt="">
+                            </div>
+                            
+                        </figure>
+                    </li>
+                    <li class="carousel__slide">
+                        <figure>
+                            <div>
+                                <img id="imag6"  alt="">
+                            </div>
+                            
+                        </figure>
+                    </li>
+                </ul>    
+                <ul class="carousel__thumbnails">
+                    <li>
+                        <label for="slide-1"><img  id="imag11" alt="" height="77px" width="77px"></label>
+                    </li>
+                    <li>
+                        <label for="slide-2"><img  id="imag12" alt="" height="77px" width="77px"></label>
+                    </li>
+                    <li>
+                        <label for="slide-3"><img  id="imag13"  alt=""></label>
+                    </li>
+                    <li>
+                        <label for="slide-4"><img id="imag14" alt=""></label>
+                    </li>
+                    <li>
+                        <label for="slide-5"><img id="imag15"  alt=""></label>
+                    </li>
+                    <li>
+                        <label for="slide-6"><img id="imag16"  alt=""></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    </div>
+  
+    <div class="product-customizer">
+      <span class="h1">{{ product.title }}</span>
+      <span class="h1" id="carat">1.00</span> <br>
+      <span class="h1">CT. TW.</span>
+      <div class="flex">
+        <p>SKU: {{ product.variants.first.sku }}</p>
+        <p class="retail-price">
+          <span>RETAIL PRICE:</span>
+          <span>{{ product.price | money }}</span>
+        </p>
+      </div>
+      <s class="compare-price">{{ product.compare_at_price | money }}</s>
+      <div class="add-to-cart">
+        <span class="sale-price-wrapper">
+          <span class="rebate-applied">70% REBATE APPLIED</span>
+          <div>
+            <span class="sale-price-title">Buy Now:</span>
+            <span id="mydemo" class="builder-price">{{ product.price | money }}</span>
+          </div>
+        </span>
+        <button class="add-to-cart-button" type="submit" name="add">ADD TO CART</button>
+      </div>
+    <div class="customaizer">
+      <div class="product-customizer-options">
+        <h2 class="heading">USE THIS FILTER TO CUSTOMIZE</h2>
+    
+        <input type="hidden" name="id" value=[0]="product-customizer-option">
+          <label class="" for="center-stone">Center Stone</label>
+          <span class="star">*</span>
+          <br>
+          <span class="product-customizer-option-label">
+            <label for="options_76997_2">Diamond </label>
+            <label for="options_76997_2">Lab Diamond </label>
+          </span>
+        </div>
+        <div class="product-customizer-option">
+          <label for="center-stone-shape">Center Stone Shape</label>
+          <span class="star">*</span>
+          <br>
+          {% comment %}
+            {% for variant in product.variants %}
+              <h1>{{ variant.image }}</h1>
+              {% if variant.available %}
+    
+                  <option
+                    data-title="{{ variant.title }}"
+                    data-img="{{variant.image|img_url:"master"}}"
+                    value="{{variant.id}}"
+                  >
+    
+                <img
+                  id="myImg1"
+                  width="{{ image.width }}"
+                  height="{{ image.height }}"
+                  class="img"
+                  src="{{variant.image|img_url:"master"}}"
+                  onclick=makeActive1(this)
+                >
+                </option>
+              {% else %}
+                <option value="{{variant.id}}" disabled="disabled">{{ variant.title }} - sold out!</option>
+              {% endif %}
+            {% endfor %}
+          {% endcomment %}
+          {% comment %}
+            <img
+              src="{{ product.media[5] | img_url: 'master' }}"
+              alt="{{ product.title }} - {{ product.metafields.descriptors.subtitle }}"
+              loading="lazy"
+              height="50"
+              width="50"
+            >
+    
+    
+            {%  forloop.index0 %}
+              <label style="background-image:(https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r1.png?v=1704198420)"></label>
+    
+            {% endfor %}
+          {% endcomment %}
+          {% comment %}
+            <img
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              src="{{ product }}"
+            >
+          {% endcomment %}
+          
+          <img
+            id="myImg1"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r1.png?v=1704198420"
+            onclick=makeActive1(shapeid=0)
+          >
+          <img
+            id="myImg2"
+            class="img"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r2.png?v=1704198420"
+            onclick=makeActive1(shapeid=1)
+          >
+          <img
+            id="myImg3"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r3.png?v=1704198420"
+            onclick=makeActive1(shapeid=2)
+          >
+          <img
+            id="myImg4"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r4.png?v=1704198420"
+            onclick=makeActive1(shapeid=3)
+          >
+          <img
+            id="myImg5"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r5.png?v=1704198420"
+            onclick=makeActive1(shapeid=4)
+          >
+          <img
+            id="myImg6"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r6.png?v=1704198420"
+            onclick=makeActive1(shapeid=5)
+          >
+          <img
+            id="myImg7"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r7.png?v=1704198420"
+            onclick=makeActive1(shapeid=6)
+          >
+          <img
+            id="myImg8"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r8.png?v=1704198420"
+            onclick=makeActive1(shapeid=7)
+          >
+          <img
+            id="myImg9"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r9.png?v=1704198420"
+            onclick=makeActive1(shapeid=8)
+          >
+          <img
+            id="myImg10"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            class="img"
+            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r10.png?v=1704198420"
+            onclick=makeActive1(shapeid=9)
+          >
+        </div>
+        <label for="center-stone-color">Center Stone Weight</label>
+        <span class="star">*</span>
+        <div class="slidercontainer">
+          <input type="range" min="0.25" max="3.00" step="0.05" class="slider" id="myRange">
+          <span class="demo" id="demo"></span>
+          <div class="caratvalue">
+            <span class="values">0.25</span>
+            <span class="values">3.00</span>
+          </div>
+          <script>
+            var slider = document.getElementById('myRange');
+            var output = document.getElementById('demo');
+            var myoutput = document.getElementById('mydemo');
+            var myvalue = {{ product.price }};
+            output.innerHTML = slider.value;
+            var carat= document.getElementById('carat');
+            slider.oninput = function () {
+              output.innerHTML = this.value;
+              carat.innerHTML = slider.value;
+    
+              myoutput.innerHTML = (myvalue * parseFloat(this.value)/100).toFixed(2);
+            };
+          </script>
+        </div>
+      </div>
+      
+      <div class="product-customizer-option">
+        <label for="center-stone-color">Center Stone Color</label>
+        <span class="star">*</span>
+        <div class="slidercontainer">
+          <input type="range" min="1" max="10" step="1" class="slider" id="mySecond">
+          <span id="second"></span>
+          <div class="caratvalue">
+            <span class="values">0.25</span>
+            <span class="values">3.00</span>
+          </div>
+          <script>
+            var slidertwo = document.getElementById('mySecond');
+            var output = document.getElementById('second');
+            var myoutput = document.getElementById('mydemo');
+            var myvalue = {{ product.price }};
+            output.innerHTML = slider.value;
+            var carat= document.getElementById('carat');
+            slidertwo.oninput = function () {
+              output.innerHTML = this.value;
+              {% comment %} carat.innerHTML = slider.value; {% endcomment %}
+    
+              myoutput.innerHTML = (myvalue / parseFloat(this.value)/100).toFixed(2);
+            };
+          </script>
+        </div>
+      </div>
+      <div class="product-customizer-option">
+        <label for="center-stone-clarity">Center Stone Clarity</label>
+        <span class="star">*</span>
+        <div class="slidercontainer">
+          <input type="range" min="1" max="10" step="1" class="slider" id="myThird">
+          <span id="third"></span>
+          <div class="caratvalue">
+            <span class="values">0.25</span>
+            <span class="values">3.00</span>
+          </div>
+          <script>
+            var sliderthree = document.getElementById('myThird');
+            var output = document.getElementById('third');
+            var myoutput = document.getElementById('mydemo');
+            var myvalue = {{ product.price }};
+            output.innerHTML = slider.value;
+            var carat= document.getElementById('carat');
+            sliderthree.oninput = function () {
+              output.innerHTML = this.value;
+              {% comment %} carat.innerHTML = slider.value; {% endcomment %}
+    
+              myoutput.innerHTML = (myvalue / parseFloat(this.value)/100).toFixed(2);
+            };
+          </script>
+        </div>
+      </div>
+      <div class="product-customizer-option">
+        <label for="metal-for-mounting">Metal for Mounting</label>
+        <span class="star">*</span><br>
+        <select class="metalmounting" id="metal-for-mounting" name="properties[Metal for Mounting]">
+          <option value="platinum">platinum</option>
+          <option value="10K White Gold">10K White Gold</option>
+          <option value="14K White Gold">14k White Gold</option>
+          <option value="18K White Gold">18K White Gold</option>
+          <option value="10K Yellow Gold">10K White Gold</option>
+          <option value="14K Yellow Gold">14k White Gold</option>
+          <option value="18K Yellow Gold">18K White Gold</option>
+        </select>
+  
+        
+      </div>
+    </div>
+  
+    </div>
+  
+  </div>
+  
+  
+  
+  
+  <script>
+  
+    function showVariants(ans){
+      var img1 = document.getElementById('imag1');
+      var img2 = document.getElementById('imag2');
+      var img3 = document.getElementById('imag3');
+      var img4 = document.getElementById('imag4');
+      var img5 = document.getElementById('imag5');
+      var img6 = document.getElementById('imag6');
+  
+      var img11 = document.getElementById('imag11');
+      var img22 = document.getElementById('imag12');
+      var img33 = document.getElementById('imag13');
+      var img44 = document.getElementById('imag14');
+      var img55 = document.getElementById('imag15');
+      var img66 = document.getElementById('imag16');
+  
+      img1.setAttribute('src', ans[0]);
+      img2.setAttribute('src', ans[1]);
+      img3.setAttribute('src', ans[2]);
+      img4.setAttribute('src', ans[3]);
+      img5.setAttribute('src', ans[4]);
+      img6.setAttribute('src', ans[5]);
+  
+      img11.setAttribute('src', ans[0]);
+      img22.setAttribute('src', ans[1]);
+      img33.setAttribute('src', ans[2]);
+      img44.setAttribute('src', ans[3]);
+      img55.setAttribute('src', ans[4]);
+      img66.setAttribute('src', ans[5]);
+    }
+  
+    function makeActive1(shapeid) {
+      var pro = {{ product.variants | json }};
+      var available = [];
+      console.log(pro);
+  
+      var varry1 = [];
+      var varry;
+  
+      console.log("shapeid",shapeid)
+  
+      pro.forEach((variant) => {
+          available.push(variant.id);
+      });
+      console.log(available);
+  
+      var productid={{product.id }}
+      console.log("productid",productid)
+  
+  
+      fetch(`https://skyvisionshopify.in/msgapi/api/msgs/shape/${shapeid}/product/${productid}`)
+          .then(response => response.json())
+          .then(data => {
+              varry1.push(data.data);
+              console.log("varry1",varry1)
+              varry=varry1[0]
+              if(varry1.length==0)
+              {
+                varry=["https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg"]
+                showVariants(varry);
+                
+              }else{
+                var ans=[]
+              console.log("varry",varry)
+              varry.map((variant) => {
+                  if (available.includes(variant.VarientId)) {
+                      let ind = available.indexOf(variant.VarientId);
+                      ans.push(pro[ind].featured_image.src);
+                  }
+              });
+  
+              console.log("ans", ans);
+              showVariants(ans);
+              }
+              
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+
+          const images = document.getElementsByTagName('img');
+
+
+          for (let i = 0; i < images.length; i++) {
+            images[i].classList.remove('active');
+            }
+
+          clickedImage.classList.add('active');
+          }
+  
+  </script>
+  
+  
