@@ -1,6 +1,6 @@
 {% schema %}
   {
-    "name": "Star Rating",
+    "name": "Jewellery_App",
     "target": "section",
     "settings": [
       { "type": "product", "id": "product", "label": "product", "autofill": true },
@@ -18,6 +18,8 @@
   
     <div class="productimagecarosoul" >
       <section>
+  
+       
         <div class="container">
             <div class="carousel">
                 <input type="radio" name="slides" checked="checked" id="slide-1">
@@ -30,7 +32,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img  id="imag1"  alt="">
+                                <img  id="imag1"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -38,7 +40,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img  id="imag2"  alt="">
+                                <img  id="imag2" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -46,7 +48,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag3"  alt="">
+                                <img id="imag3" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -54,7 +56,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag4"  alt="">
+                                <img id="imag4" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                                                         
                             
@@ -63,7 +65,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag5"  alt="">
+                                <img id="imag5" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -71,7 +73,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag6"  alt="">
+                                <img id="imag6"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -79,27 +81,27 @@
                 </ul>    
                 <ul class="carousel__thumbnails">
                     <li>
-                        <label for="slide-1"><img  id="imag11" alt="" height="77px" width="77px"></label>
+                        <label for="slide-1"><img  id="imag11" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                     <li>
-                        <label for="slide-2"><img  id="imag12" alt="" height="77px" width="77px"></label>
+                        <label for="slide-2"><img  id="imag12" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                     <li>
-                        <label for="slide-3"><img  id="imag13"  alt=""></label>
+                        <label for="slide-3"><img  id="imag13"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
                     </li>
                     <li>
-                        <label for="slide-4"><img id="imag14" alt=""></label>
+                        <label for="slide-4"><img id="imag14" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
                     </li>
                     <li>
-                        <label for="slide-5"><img id="imag15"  alt=""></label>
+                        <label for="slide-5"><img id="imag15" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
                     </li>
                     <li>
-                        <label for="slide-6"><img id="imag16"  alt=""></label>
+                        <label for="slide-6"><img id="imag16"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
                     </li>
                 </ul>
             </div>
         </div>
-    </section>
+      </section>
     </div>
   
     <div class="product-customizer">
@@ -128,19 +130,22 @@
       <div class="product-customizer-options">
         <h2 class="heading">USE THIS FILTER TO CUSTOMIZE</h2>
     
-        <input type="hidden" name="id" value=[0]="product-customizer-option">
+        <input type="hidden" name="id" value={{product.content.size}}>
           <label class="" for="center-stone">Center Stone</label>
           <span class="star">*</span>
           <br>
           <span class="product-customizer-option-label">
-            <label for="options_76997_2">Diamond </label>
-            <label for="options_76997_2">Lab Diamond </label>
+            <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Diamond">Diamond</button>
+            <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Lab Diamond ">Lab Diamond </button>
+            {% comment %} <label for="options_76997_2">Diamond </label>
+            <label for="options_76997_2">Lab Diamond </label> {% endcomment %}
           </span>
         </div>
-        <div class="product-customizer-option">
-          <label for="center-stone-shape">Center Stone Shape</label>
+        <div id="centerstoneimages" class="product-customizer-option" style="padding-left:0px;">
+          <label for="center-stone-shape" >Center Stone Shape</label>
           <span class="star">*</span>
           <br>
+          
           {% comment %}
             {% for variant in product.variants %}
               <h1>{{ variant.image }}</h1>
@@ -189,7 +194,7 @@
             >
           {% endcomment %}
           
-          <img
+          {% comment %} <img
             id="myImg1"
             width="{{ image.width }}"
             height="{{ image.height }}"
@@ -268,7 +273,7 @@
             class="img"
             src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r10.png?v=1704198420"
             onclick=makeActive1(shapeid=9)
-          >
+          > {% endcomment %}
         </div>
         <label for="center-stone-color">Center Stone Weight</label>
         <span class="star">*</span>
@@ -351,18 +356,63 @@
       <div class="product-customizer-option">
         <label for="metal-for-mounting">Metal for Mounting</label>
         <span class="star">*</span><br>
-        <select class="metalmounting" id="metal-for-mounting" name="properties[Metal for Mounting]">
-          <option value="platinum">platinum</option>
-          <option value="10K White Gold">10K White Gold</option>
-          <option value="14K White Gold">14k White Gold</option>
-          <option value="18K White Gold">18K White Gold</option>
-          <option value="10K Yellow Gold">10K White Gold</option>
-          <option value="14K Yellow Gold">14k White Gold</option>
-          <option value="18K Yellow Gold">18K White Gold</option>
-        </select>
-  
-        
+        <div class="ring_mounting">
+          <button class="buttonlink active" data-toggle="tooltip" data-placement="top" title="platinum">platinum Ring</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="10K White Gold">10K White Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="14k White Gold">14k White Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="18K White Gold">18K White Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="10K Yellow Gold">10K Yellow Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="14K Yellow Gold">14K Yellow Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="18K Yellow Gold">18K Yellow Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="10K Rose Gold">10K Rose Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="14K Rose Gold">14K Rose Gold</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="18K Rose Gold">18K Rose Gold</button>
+        </div>
       </div>
+      <script>
+        var header = document.getElementById("ring_mounting");
+        var btns = header.getElementsByClassName("buttonlink");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          });
+        }
+        </script>
+      <div class="product-customizer-option">
+        <label for="metal-for-mounting">Metal for Mounting</label>
+        <span class="star">*</span><br>
+        <div class="slidercontainer">
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="3.00">3.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="3.25">3.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="3.50">3.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="3.75">3.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="4.00">4.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="4.25">4.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="4.50">4.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="4.75">4.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="5.00">5.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="5.25">5.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="5.50">5.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="5.75">5.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="6.00">6.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="6.25">6.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="6.50">6.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="6.75">6.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="7.00">7.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="7.25">7.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="7.50">7.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="7.75">7.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="8.00">8.00</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="8.25">8.25</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="8.50">8.50</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="8.75">8.75</button>
+          <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="9.00">9.00</button>
+        
+        </div>
+      </div>
+  
     </div>
   
     </div>
@@ -370,11 +420,71 @@
   </div>
   
   
-  
-  
   <script>
   
+  
+  
+      document.addEventListener("DOMContentLoaded", function() {
+      makeActive1(0);
+  
+      var shapeidArray = [
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r10.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r1.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r2.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r3.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r4.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r5.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r6.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r7.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r8.png?v=1704198420",
+          "https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r9.png?v=1704198420"
+      ];
+  
+      var productid = {{ product.id }};
+  
+      fetch(`https://skyvisionshopify.in/msgapi/api/msgs/${productid}`)
+          .then(response => response.json())
+          .then(data => {
+              var varry1 = [];
+              varry1.push(data.data);
+              console.log("Data for stone", varry1);
+              var varry = varry1[0];
+  
+              var ans = [];
+              console.log("data", varry);
+  
+              varry.map((variant) => {
+                  if (!ans.includes(variant.ShapeId)) {
+                      ans.push(variant.ShapeId);
+                  }
+              });
+  
+              ans.sort();
+              console.log("ans123", ans);
+  
+              ans.map((id) => {
+                  var elem = document.createElement('img');
+                  elem.setAttribute('src', shapeidArray[id]);
+                  elem.setAttribute('height', "{{image.height}}");
+                  elem.setAttribute('width', "{{image.width}}");
+                  elem.setAttribute('class', "img");
+                  elem.setAttribute('data-shapeid', id); 
+  
+                  elem.addEventListener('click', function() {
+                      makeActive1(id); 
+                      
+                  });
+  
+                  document.getElementById("centerstoneimages").appendChild(elem);
+              });
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+  });
+  
     function showVariants(ans){
+  
       var img1 = document.getElementById('imag1');
       var img2 = document.getElementById('imag2');
       var img3 = document.getElementById('imag3');
@@ -402,8 +512,18 @@
       img44.setAttribute('src', ans[3]);
       img55.setAttribute('src', ans[4]);
       img66.setAttribute('src', ans[5]);
+      var n=ans.length  
+      for (let i = 1; i<=6; i++) {
+        if((i-1)<n){
+          document.getElementById(`imag1${i}`).style.display='block';
+          
+        }
+        else{
+          document.getElementById(`imag1${i}`).style.display = 'none';
+        
+      }       
+    }  
     }
-  
     function makeActive1(shapeid) {
       var pro = {{ product.variants | json }};
       var available = [];
@@ -423,19 +543,14 @@
       console.log("productid",productid)
   
   
-      fetch(`https://skyvisionshopify.in/msgapi/api/msgs/shape/${shapeid}/product/${productid}`)
+    fetch(`https://skyvisionshopify.in/msgapi/api/msgs/shape/${shapeid}/product/${productid}`)
           .then(response => response.json())
           .then(data => {
               varry1.push(data.data);
               console.log("varry1",varry1)
               varry=varry1[0]
-              if(varry1.length==0)
-              {
-                varry=["https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg","https://demofree.sirv.com/nope-not-here.jpg"]
-                showVariants(varry);
-                
-              }else{
-                var ans=[]
+           
+              var ans=[]
               console.log("varry",varry)
               varry.map((variant) => {
                   if (available.includes(variant.VarientId)) {
@@ -446,22 +561,20 @@
   
               console.log("ans", ans);
               showVariants(ans);
-              }
-              
-          })
-          .catch(error => {
-              console.error('Error fetching data:', error);
+              var allImages = document.querySelectorAll('.img');
+          allImages.forEach(function(img) {
+              img.classList.remove('active');
           });
-
-          const images = document.getElementsByTagName('img');
-
-
-          for (let i = 0; i < images.length; i++) {
-            images[i].classList.remove('active');
-            }
-
-          clickedImage.classList.add('active');
-          }
+  
+      var clickedImage = document.querySelector(`img[data-shapeid="${shapeid}"]`);
+      clickedImage.classList.add('active');
+  
+                  })
+                  .catch(error => {
+                      console.error('Error fetching data:', error);
+                  });
+                  
+    }
   
   </script>
   

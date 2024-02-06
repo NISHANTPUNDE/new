@@ -177,14 +177,14 @@ a.active {
 }
 
 .varients {
-    margin-left: -80vw;
+    margin-left: -200%;
     width: full;
     overflow-x: auto;
 }
 
 .flex {
     display: flex;
-    /* / flex-direction: column; / */
+    /* / / flex-direction: column; / / */
     gap: 10px;
     padding: 20px;
 }
@@ -211,7 +211,7 @@ h1 {
 }
 
 .box {
-    /* / background: url("https://res.cloudinary.com/dci7ukl75/image/upload/v1668205411/defff_uhx4wz.png"); / */
+    /* / / background: url("https://res.cloudinary.com/dci7ukl75/image/upload/v1668205411/defff_uhx4wz.png"); / / */
 
     background-size: contain;
     background-repeat: no-repeat;
@@ -219,7 +219,7 @@ h1 {
     height: 30vh;
     display: flex;
     margin-top: 20px;
-    /* / justify-content: center; / */
+    /* / / justify-content: center; / / */
     align-items: center;
     z-index: 100;
 
@@ -250,7 +250,7 @@ h1 {
 
 
 
-/* / CSS / */
+/* / / CSS / / */
 .button-11 {
     display: flex;
     flex-direction: column;
@@ -276,16 +276,16 @@ h1 {
 
 
 
-@media screen and (min-width: 1100px)and (max-width:1900px) {
+/* @media screen and (min-width: 1100px)and (max-width:1900px) {
     .varientsresponsive {
         width: -100px;
         margin-left: 150px;
     }
 
-}
+} */
 
-/* / ******************************************** */
-*/::-webkit-scrollbar {
+/* / / ******************************************* */
+*/ */::-webkit-scrollbar {
     height: 8px;
     width: 4px;
     background: gray;
@@ -309,4 +309,22 @@ h1 {
     background: rgb(188, 183, 183);
     border-radius: 10px;
 
+}
+
+/* 
+/  *********************************************************************************************** */
+*/ .Polaris-Page--fullWidth {
+    max-width: 100% !important;
+}
+
+@media only screen and (min-width:1300px) {
+    .varients {
+        margin-left: -530px;
+    }
+}
+
+@media only screen and (max-width:1299px) {
+    .varients {
+        margin-left: -530px;
+    }
 }

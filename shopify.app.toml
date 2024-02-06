@@ -2,7 +2,7 @@
 
 name = "jewellaryaApp"
 client_id = "688bf3ee609bfaebe3a0bcf79102cd1e"
-application_url = "https://penn-deep-pictures-modems.trycloudflare.com"
+application_url = "https://prairie-retired-commissioner-wa.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products,read_products,read_orders"
 
 [auth]
 redirect_urls = [
-  "https://penn-deep-pictures-modems.trycloudflare.com/auth/callback",
-  "https://penn-deep-pictures-modems.trycloudflare.com/auth/shopify/callback",
-  "https://penn-deep-pictures-modems.trycloudflare.com/api/auth/callback"
+  "https://prairie-retired-commissioner-wa.trycloudflare.com/auth/callback",
+  "https://prairie-retired-commissioner-wa.trycloudflare.com/auth/shopify/callback",
+  "https://prairie-retired-commissioner-wa.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
