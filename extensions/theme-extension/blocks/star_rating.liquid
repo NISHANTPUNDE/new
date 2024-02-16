@@ -1,6 +1,6 @@
 {% schema %}
   {
-    "name": "Jewellery_App",
+    "name": "Star Rating1",
     "target": "section",
     "settings": [
       { "type": "product", "id": "product", "label": "product", "autofill": true },
@@ -32,7 +32,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img  id="imag1"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img  id="imag1"  height={} width={} src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -40,7 +40,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img  id="imag2" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img  id="imag2" height={} width={} src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -48,7 +48,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag3" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img id="imag3" height={} width={} src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -56,7 +56,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag4" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img id="imag4" height={} width={} src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                                                         
                             
@@ -65,7 +65,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag5" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img id="imag5" height={} width={} src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -73,7 +73,7 @@
                     <li class="carousel__slide">
                         <figure>
                             <div>
-                                <img id="imag6"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
+                                <img id="imag6" height={} width={}  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="">
                             </div>
                             
                         </figure>
@@ -87,25 +87,25 @@
                         <label for="slide-2"><img  id="imag12" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                     <li>
-                        <label for="slide-3"><img  id="imag13"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
+                        <label for="slide-3"><img  id="imag13"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px" ></label>
                     </li>
                     <li>
-                        <label for="slide-4"><img id="imag14" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
+                        <label for="slide-4"><img id="imag14" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                     <li>
-                        <label for="slide-5"><img id="imag15" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
+                        <label for="slide-5"><img id="imag15" src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                     <li>
-                        <label for="slide-6"><img id="imag16"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt=""></label>
+                        <label for="slide-6"><img id="imag16"  src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg" alt="" height="77px" width="77px"></label>
                     </li>
                 </ul>
             </div>
         </div>
-      </section>
+    </section>
     </div>
   
     <div class="product-customizer">
-      <span class="h1">{{ product.title }}</span>
+      <span class="h1" id="productname">{{ product.title }}</span>
       <span class="h1" id="carat">1.00</span> <br>
       <span class="h1">CT. TW.</span>
       <div class="flex">
@@ -124,156 +124,26 @@
             <span id="mydemo" class="builder-price">{{ product.price | money }}</span>
           </div>
         </span>
-        <button class="add-to-cart-button" type="submit" name="add">ADD TO CART</button>
+        <button class="add-to-cart-button" type="submit" name="add" onclick="cartChange()">ADD TO CART</button>
       </div>
     <div class="customaizer">
       <div class="product-customizer-options">
         <h2 class="heading">USE THIS FILTER TO CUSTOMIZE</h2>
     
-        <input type="hidden" name="id" value={{product.content.size}}>
+        <input type="hidden" name="id" >
           <label class="" for="center-stone">Center Stone</label>
           <span class="star">*</span>
           <br>
           <span class="product-customizer-option-label">
-            <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Diamond">Diamond</button>
-            <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Lab Diamond ">Lab Diamond </button>
-            {% comment %} <label for="options_76997_2">Diamond </label>
-            <label for="options_76997_2">Lab Diamond </label> {% endcomment %}
+              <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Diamond">Diamond</button>
+              <button class="buttonproductcust" data-toggle="tooltip" data-placement="top" title="Lab Diamond ">Lab Diamond </button>
+       
           </span>
         </div>
-        <div id="centerstoneimages" class="product-customizer-option" style="padding-left:0px;">
-          <label for="center-stone-shape" >Center Stone Shape</label>
+        <div  id="centerstoneimages" class="product-customizer-option">
+          <label for="center-stone-shape">Center Stone Shape</label>
           <span class="star">*</span>
           <br>
-          
-          {% comment %}
-            {% for variant in product.variants %}
-              <h1>{{ variant.image }}</h1>
-              {% if variant.available %}
-    
-                  <option
-                    data-title="{{ variant.title }}"
-                    data-img="{{variant.image|img_url:"master"}}"
-                    value="{{variant.id}}"
-                  >
-    
-                <img
-                  id="myImg1"
-                  width="{{ image.width }}"
-                  height="{{ image.height }}"
-                  class="img"
-                  src="{{variant.image|img_url:"master"}}"
-                  onclick=makeActive1(this)
-                >
-                </option>
-              {% else %}
-                <option value="{{variant.id}}" disabled="disabled">{{ variant.title }} - sold out!</option>
-              {% endif %}
-            {% endfor %}
-          {% endcomment %}
-          {% comment %}
-            <img
-              src="{{ product.media[5] | img_url: 'master' }}"
-              alt="{{ product.title }} - {{ product.metafields.descriptors.subtitle }}"
-              loading="lazy"
-              height="50"
-              width="50"
-            >
-    
-    
-            {%  forloop.index0 %}
-              <label style="background-image:(https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r1.png?v=1704198420)"></label>
-    
-            {% endfor %}
-          {% endcomment %}
-          {% comment %}
-            <img
-              width="{{ image.width }}"
-              height="{{ image.height }}"
-              src="{{ product }}"
-            >
-          {% endcomment %}
-          
-          {% comment %} <img
-            id="myImg1"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r1.png?v=1704198420"
-            onclick=makeActive1(shapeid=0)
-          >
-          <img
-            id="myImg2"
-            class="img"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r2.png?v=1704198420"
-            onclick=makeActive1(shapeid=1)
-          >
-          <img
-            id="myImg3"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r3.png?v=1704198420"
-            onclick=makeActive1(shapeid=2)
-          >
-          <img
-            id="myImg4"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r4.png?v=1704198420"
-            onclick=makeActive1(shapeid=3)
-          >
-          <img
-            id="myImg5"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r5.png?v=1704198420"
-            onclick=makeActive1(shapeid=4)
-          >
-          <img
-            id="myImg6"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r6.png?v=1704198420"
-            onclick=makeActive1(shapeid=5)
-          >
-          <img
-            id="myImg7"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r7.png?v=1704198420"
-            onclick=makeActive1(shapeid=6)
-          >
-          <img
-            id="myImg8"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r8.png?v=1704198420"
-            onclick=makeActive1(shapeid=7)
-          >
-          <img
-            id="myImg9"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r9.png?v=1704198420"
-            onclick=makeActive1(shapeid=8)
-          >
-          <img
-            id="myImg10"
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            class="img"
-            src="https://cdn.shopify.com/s/files/1/0737/1295/9775/files/r10.png?v=1704198420"
-            onclick=makeActive1(shapeid=9)
-          > {% endcomment %}
         </div>
         <label for="center-stone-color">Center Stone Weight</label>
         <span class="star">*</span>
@@ -368,8 +238,10 @@
           <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="14K Rose Gold">14K Rose Gold</button>
           <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="18K Rose Gold">18K Rose Gold</button>
         </div>
+        
       </div>
       <script>
+   
         var header = document.getElementById("ring_mounting");
         var btns = header.getElementsByClassName("buttonlink");
         for (var i = 0; i < btns.length; i++) {
@@ -379,9 +251,10 @@
           this.className += " active";
           });
         }
-        </script>
+  
+      </script>
       <div class="product-customizer-option">
-        <label for="metal-for-mounting">Metal for Mounting</label>
+        <label for="metal-for-mounting">Ring Size</label>
         <span class="star">*</span><br>
         <div class="slidercontainer">
           <button class="buttonlink" data-toggle="tooltip" data-placement="top" title="3.00">3.00</button>
@@ -412,19 +285,103 @@
         
         </div>
       </div>
-  
     </div>
-  
-    </div>
-  
   </div>
+  
   
   
   <script>
   
+    async function cartChange() {
+      console.log("hell");
+      
+      const apiUrl = 'https://skyvisionshopify.in/KattDiamondApi/createproduct';
   
+      var weight=document.getElementById('myRange').value
+      var color=document.getElementById('mySecond').value
+      var clarity=document.getElementById('myThird').value
   
-      document.addEventListener("DOMContentLoaded", function() {
+       var pid;
+    var a = document.getElementById("productname").innerText;
+    var b = document.getElementById("carat").innerText;
+    var productName = a+" "+b;
+    console.log(productName);
+  
+       var myDemoElement = document.getElementById("mydemo");
+       var priceWithCurrency = myDemoElement.innerText; // Get the inner text which includes the currency symbol
+       
+  const substring = priceWithCurrency.replace("Rs. ", "");
+      
+       var price = parseFloat(substring.replace(/,/g, "")) // Check if a numeric part is found
+       console.log("Price:", substring);
+       
+       
+      try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "title": productName,
+                "body_html": "<strong>Good snowboard!</strong>",
+                "variants": [
+                  {
+                      
+                      "price": price
+                      
+                  }
+              ]
+            }),
+        });
+  
+        const data = await response.json();
+        console.log("new product ", data);
+        console.log("id",data.product.variants[0].id)
+        pid=data.product.variants[0].id
+        // Handle the response, check for errors, and process the created product ID if successful
+    } catch (error) {
+        console.error('Error:', error);
+    }
+      
+  
+    var data = {
+      items: [
+        {
+          id: pid,
+          quantity: 1,// Corrected spelling
+          properties: {
+            Center_Stone_Weight : weight,
+            Center_Stone_Color:  color,
+            Center_Stone_Clarity:  clarity, 
+            Metal_for_Mounting: "10K Yellow Gold",
+            Ring_Size: "3.00"
+        }
+        }
+      ]
+    };
+    
+        
+          try {
+            const response = await fetch("/cart/add.json", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+              body: JSON.stringify(data)
+            });
+        
+            const result = await response.json();
+            console.log("result", result);
+            
+            // Further actions with the result if needed
+          } catch (error) {
+            console.error('Error:', error);
+            // Handle errors here if necessary
+          }  
+  
+  }
+  
+  document.addEventListener("DOMContentLoaded", function() {
       makeActive1(0);
   
       var shapeidArray = [
@@ -442,16 +399,15 @@
   
       var productid = {{ product.id }};
   
-      fetch(`https://skyvisionshopify.in/msgapi/api/msgs/${productid}`)
+      fetch(`https://skyvisionshopify.in/KattDiamondApi/${productid}`)
           .then(response => response.json())
           .then(data => {
               var varry1 = [];
               varry1.push(data.data);
-              console.log("Data for stone", varry1);
               var varry = varry1[0];
   
               var ans = [];
-              console.log("data", varry);
+            
   
               varry.map((variant) => {
                   if (!ans.includes(variant.ShapeId)) {
@@ -460,7 +416,6 @@
               });
   
               ans.sort();
-              console.log("ans123", ans);
   
               ans.map((id) => {
                   var elem = document.createElement('img');
@@ -468,11 +423,9 @@
                   elem.setAttribute('height', "{{image.height}}");
                   elem.setAttribute('width', "{{image.width}}");
                   elem.setAttribute('class', "img");
-                  elem.setAttribute('data-shapeid', id); 
   
                   elem.addEventListener('click', function() {
                       makeActive1(id); 
-                      
                   });
   
                   document.getElementById("centerstoneimages").appendChild(elem);
@@ -483,7 +436,9 @@
           });
   });
   
+  
     function showVariants(ans){
+  
   
       var img1 = document.getElementById('imag1');
       var img2 = document.getElementById('imag2');
@@ -499,6 +454,8 @@
       var img55 = document.getElementById('imag15');
       var img66 = document.getElementById('imag16');
   
+     
+  
       img1.setAttribute('src', ans[0]);
       img2.setAttribute('src', ans[1]);
       img3.setAttribute('src', ans[2]);
@@ -512,7 +469,9 @@
       img44.setAttribute('src', ans[3]);
       img55.setAttribute('src', ans[4]);
       img66.setAttribute('src', ans[5]);
-      var n=ans.length  
+  
+      var n=ans.length
+      
       for (let i = 1; i<=6; i++) {
         if((i-1)<n){
           document.getElementById(`imag1${i}`).style.display='block';
@@ -521,60 +480,47 @@
         else{
           document.getElementById(`imag1${i}`).style.display = 'none';
         
-      }       
-    }  
+      }     
+    } 
     }
+  
     function makeActive1(shapeid) {
       var pro = {{ product.variants | json }};
       var available = [];
-      console.log(pro);
+    
   
       var varry1 = [];
       var varry;
   
-      console.log("shapeid",shapeid)
-  
       pro.forEach((variant) => {
           available.push(variant.id);
       });
-      console.log(available);
   
       var productid={{product.id }}
-      console.log("productid",productid)
   
-  
-    fetch(`https://skyvisionshopify.in/msgapi/api/msgs/shape/${shapeid}/product/${productid}`)
+    fetch(`https://skyvisionshopify.in/KattDiamondApi/shape/${shapeid}/product/${productid}`)
           .then(response => response.json())
           .then(data => {
               varry1.push(data.data);
-              console.log("varry1",varry1)
+             
               varry=varry1[0]
            
               var ans=[]
-              console.log("varry",varry)
+             
               varry.map((variant) => {
                   if (available.includes(variant.VarientId)) {
                       let ind = available.indexOf(variant.VarientId);
                       ans.push(pro[ind].featured_image.src);
                   }
               });
-  
-              console.log("ans", ans);
               showVariants(ans);
-              var allImages = document.querySelectorAll('.img');
-          allImages.forEach(function(img) {
-              img.classList.remove('active');
+              
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
           });
-  
-      var clickedImage = document.querySelector(`img[data-shapeid="${shapeid}"]`);
-      clickedImage.classList.add('active');
-  
-                  })
-                  .catch(error => {
-                      console.error('Error fetching data:', error);
-                  });
-                  
     }
+  
   
   </script>
   

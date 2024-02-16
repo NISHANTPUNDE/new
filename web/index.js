@@ -6,7 +6,7 @@ import serveStatic from "serve-static";
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
 import PrivacyWebhookHandlers from "./privacy.js";
-
+import cors from "cors";
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
   10
@@ -37,11 +37,11 @@ app.post(
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
-
+app.use(cors());
 //read shop information
 
-app.get("/api/store/info",async(req,res)=>{
-  let storeInfo=await shopify.api.rest.Shop.all({
+app.get("/api/store/info", async (req, res) => {
+  let storeInfo = await shopify.api.rest.Shop.all({
     session: res.locals.shopify.session,
   })
 
@@ -56,39 +56,44 @@ app.get("/api/products", async (_req, res) => {
   res.status(200).send(countData);
 });
 
+app.get("/api/orders", async (_req, res) => {
+  try {
+    const orders = await shopify.api.rest.Order.all({
+      session: res.locals.shopify.session,
+    });
+    res.status(200).json(orders);
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    res.status(500).json({ error: "Failed to fetch orders" });
+  }
+});
+
 app.get("/api/products/count", async (_req, res) => {
-  const countData = await shopify.api.rest.Product.count({
+  const countdata = await shopify.api.rest.Product.count({
     session: res.locals.shopify.session,
   });
-  res.status(200).send(countData);
+  res.status(200).send(countdata);
 });
 
 //read collection data
 app.get("/api/collections/count", async (_req, res) => {
-  const countData = await shopify.api.rest.CustomCollection.count({
+  const countData1 = await shopify.api.rest.CustomCollection.count({
     session: res.locals.shopify.session,
   });
-  res.status(200).send(countData);
+  res.status(200).send(countData1);
 });
 
 //read orders
-app.get("/api/orders/all", async (_req, res) => {
-  const orderData = await shopify.api.rest.Order.all({
-    session: res.locals.shopify.session,
-    status:"any"
-  });
-  res.status(200).send(orderData);
-});
 
 
 app.post("/api/products/create", async (_req, res) => {
   let status = 200;
   let error = null;
 
- 
 
-  const {title,bodyHtml}=_req.body
-  
+
+  const { title, bodyHtml } = _req.body
+
   // const variants = [
   //   { price: 10.99, name: "Small", id: "small-variant" },
   //   { price: 15.99, name: "Medium", id: "medium-variant" },
@@ -96,7 +101,7 @@ app.post("/api/products/create", async (_req, res) => {
   // ];
 
   try {
-    await productCreator(res.locals.shopify.session,{title,bodyHtml});
+    await productCreator(res.locals.shopify.session, { title, bodyHtml });
   } catch (e) {
     console.log(`Failed to process products/create: ${e.message}`);
     status = 500;
@@ -108,7 +113,7 @@ app.post("/api/products/create", async (_req, res) => {
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, { index: false }));
 
-app.use("/*", shopify.ensureInstalledOnShop(), async (_req, res, _next) => {
+app.use("/*", shopify.ensureInstalledOnShop(), async (req, res, next) => {
   return res
     .status(200)
     .set("Content-Type", "text/html")

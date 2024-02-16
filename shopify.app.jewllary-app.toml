@@ -2,7 +2,7 @@
 
 name = "Jewllary_APP"
 client_id = "34bd8990b2f9c11dfa9893ba38d690d8"
-application_url = "https://facial-accurately-explaining-hay.trycloudflare.com"
+application_url = "https://getting-grades-examined-mug.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products,read_products,read_orders"
 
 [auth]
 redirect_urls = [
-  "https://facial-accurately-explaining-hay.trycloudflare.com/auth/callback",
-  "https://facial-accurately-explaining-hay.trycloudflare.com/auth/shopify/callback",
-  "https://facial-accurately-explaining-hay.trycloudflare.com/api/auth/callback"
+  "https://getting-grades-examined-mug.trycloudflare.com/auth/callback",
+  "https://getting-grades-examined-mug.trycloudflare.com/auth/shopify/callback",
+  "https://getting-grades-examined-mug.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

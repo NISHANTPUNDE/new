@@ -12,9 +12,7 @@ import {
 import { useAuthenticatedFetch } from "../hooks";
 import { NavLink } from "react-router-dom"
 import { Variants2 } from "./Varients2";
-
-
-import { OrderDetails, ProductCard, Cart } from "../components";
+import { ProductCard, Cart } from "../components";
 import { useEffect, useState } from "react";
 import ProductVarient from "./ProductVarient";
 
@@ -23,7 +21,7 @@ export default function HomePage() {
   let fetch = useAuthenticatedFetch();
   let [products, setProducts] = useState([])
   let [collections, setCollections] = useState(0)
-  let [orders, setOrders] = useState([])
+  let [orders, setOrders] = useState(0)
   let [fulfilled, setFulFilled] = useState(0)
   let [remains, setRemains] = useState(0)
   async function fetchProducts() {
@@ -54,14 +52,14 @@ export default function HomePage() {
   async function fetchOrders() {
     try {
 
-      let request = await fetch("/api/orders/all")
+      let request = await fetch("/api/orders")
       let response = await request.json()
 
-      console.log("orders", response)
+      console.log("orders:", response)
       setOrders(response.data.length)
-      let fulfillOrders = response.data.filter(item => item.fulfillment_status === 'fulfilled')
-      setFulFilled(fulfillOrders.length)
-      setRemains(response.data.length - fulfillOrders.length)
+      // let fulfillOrders = response.data.filter(item => item.fulfillment_status === 'fulfilled')
+      // setFulFilled(fulfillOrders.length)
+      // setRemains(response.data.length - fulfillOrders.length)
 
     } catch (error) {
 
@@ -78,9 +76,9 @@ export default function HomePage() {
   };
 
   useEffect(() => {
+    fetchOrders()
     fetchProducts()
     // fetchCollections()
-    // fetchOrders()
   }, [])
 
 
@@ -88,10 +86,10 @@ export default function HomePage() {
     <Page fullWidth>
       <div className="home-section">
         <div className="graphs-section">
-          {/* <OrderGraphs />  */}
+          {/* {/ <OrderGraphs />  /} */}
           <Grid>
             <Grid.Cell columnSpan={{ xs: 6, sm: 3, md: 3, lg: 6, xl: 6 }}>
-              <Cart title="Total Orders" data={orders.length} orderCard />
+              <Cart title="Total Orders" data={orders} orderCard />
             </Grid.Cell>
             <Grid.Cell columnSpan={{ xs: 6, sm: 3, md: 3, lg: 6, xl: 6 }}>
               <Cart title="Total Products" data={products.length} product />
@@ -108,12 +106,12 @@ export default function HomePage() {
             <ProductCard data={products} />
             {/* <Card title="Fulfilled Order" data={fulfilled} fulfilledCard />
                     <Card title="Remain Order" data={remains}  remainsCard/> */}
-            {/* <Card title="Total Collections" data={collections}  collections/>   */}
+            {/* {/ <Card title="Total Collections" data={collections}  collections/>   /} */}
           </Layout>
 
         </div>
         <div className="order-details-section">
-          {/* <OrderDetails /> */}
+          {/* {/ <OrderDetails /> /} */}
         </div>
       </div>
     </Page>

@@ -212,7 +212,7 @@ export const Variants = ({ images, variants, updateVariant, ProductID, isUpdatin
             ProductId: ProductID,
             VarientId: index,
           };
-          const response = await axios.post('https://skyvisionshopify.in/msgapi/api/msgs', postData);
+          const response = await axios.post('https://skyvisionshopify.in/KattDiamondApi', postData);
           console.log('API Response:', response.data);
           getData();
           setCheckedIndices([])
@@ -227,7 +227,7 @@ export const Variants = ({ images, variants, updateVariant, ProductID, isUpdatin
   const getData = async () => {
     try {
 
-      const response = await axios.get(`https://skyvisionshopify.in/msgapi/api/msgs/${ProductID}`);
+      const response = await axios.get(`https://skyvisionshopify.in/KattDiamondApi/${ProductID}`);
 
       console.log('API database:', response.data.data);
 
@@ -249,7 +249,7 @@ export const Variants = ({ images, variants, updateVariant, ProductID, isUpdatin
               VarientId: item,
             };
             const response = await axios.delete(
-              'https://skyvisionshopify.in/msgapi/api/msgs',
+              'https://skyvisionshopify.in/KattDiamondApi',
               { data: deleteData }
             );
             console.log('API Delete Response:', response);
